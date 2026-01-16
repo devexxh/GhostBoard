@@ -40,7 +40,7 @@ confessionRouter.post("/:id/vote", async (req, res) => {
 
     const allowed = await checkGhostLimits(ghostId, "vote");
     if (!allowed) {
-        return res.status(429).json({ error: "Too many votes. Touch grass." });
+        return res.status(429).json({ error: "Too many votes" });
     }
 
     const existing = confession.vote.find(v => v.ghostId === ghostId);
